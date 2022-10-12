@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  creationTimestamp: null
+
+  labels:
+
+    app: loms-nt-data-access-service
+
+  name: loms-nt-data-access-service
+
+spec:
+
+  replicas: 1
+
+  selector:
+
+    matchLabels:
+
+      app: loms-nt-data-access-service
+
+  strategy: {}
+
+  template:
+
+    metadata:
+
+      creationTimestamp: null
+
+      labels:
+
+        app: loms-nt-data-access-service
+
+    spec:
+
+      containers:
+
+        - image: harbor.onedev.neustar.biz/cs-loms-nonprod/loms-nt-data-access-service:latest
+
+          name: loms-nt-data-access-service
+
+          resources: {}
+
+      imagePullSecrets:
+
+        - name: cscp-loms-rancher2harbor
+
+status: {}

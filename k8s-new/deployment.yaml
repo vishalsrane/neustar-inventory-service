@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-service
+  labels:
+    app: inventory-service
+  namespace: cscp-loms-nt-cmf-mesh
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory-service
+  template:
+    metadata:
+      labels:
+        app: inventory-service
+    spec:
+      containers:
+        - image: harbor.onedev.neustar.biz/cs-loms-nonprod/inventory-service:1
+#          imagePullPolicy: Always
+          name: inventory-service
+#      imagePullSecrets:
+#      - name: docker-secret
